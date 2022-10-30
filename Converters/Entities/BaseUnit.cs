@@ -3,9 +3,12 @@
 public abstract class BaseUnit
 {
     public decimal Value { get; set; }
-
-    protected BaseUnit(decimal Value)
+    
+    protected const string specifier = "0.000";
+    protected BaseUnit(decimal value)
     {
-        this.Value = Value;
+        this.Value = value;
     }
+
+    public abstract string PrintString();
 }
