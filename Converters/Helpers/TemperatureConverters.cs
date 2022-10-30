@@ -1,14 +1,14 @@
 ﻿namespace Converters;
 
-public class TemperatureConverters
+public static class TemperatureConverters
 {
-    public static void Convert(ref CelsiusUnit celsius, out FahrenheitUnit fahrenheits)
+    public static void Convert(ref FahrenheitUnit fahrenheits, ref CelsiusUnit celsius)
     {
-        fahrenheits = new FahrenheitUnit((decimal)(celsius.Value * (decimal)(9/5)) + 32);
+        celsius.Value = Decimal.Multiply(Decimal.Subtract(fahrenheits.Value, 32m), Decimal.Divide(5m, 9m));
     }
 
-    public static void Convert(ref FahrenheitUnit fahrenheits, out CelsiusUnit celsius)
+    public static void Convert(ref CelsiusUnit celsius, ref FahrenheitUnit fahrenheits)
     {
-        celsius = new CelsiusUnit((decimal)((fahrenheits.Value - 32) * (decimal)(5/9)));
+        fahrenheits.Value = Decimal.Add(Decimal.Multiply(celsius.Value, Decimal.Divide(9m, 5m)), 32m);
     }
 }

@@ -1,5 +1,6 @@
 ﻿namespace Converters;
 
+
 public enum SIUnitPrefix
 {
     EMPTY = 0,
