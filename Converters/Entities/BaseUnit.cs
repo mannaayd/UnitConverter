@@ -2,5 +2,10 @@
 
 public abstract class BaseUnit
 {
-    protected decimal Value { get; set; }
+    public decimal Value { get; set; }
+
+    protected BaseUnit(decimal Value)
+    {
+        this.Value = Value;
+    }
 }
