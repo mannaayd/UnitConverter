@@ -1,12 +1,30 @@
 ﻿namespace Converters;
 
-public class FeetUnit : BaseUnit
+public class FeetUnit : BasePrefixUnit, IConvertibleTo<MeterUnit>, IConvertibleTo<InchUnit>, IConvertibleTo<FeetUnit>
 {
-    public FeetUnit(decimal value) : base(value)
+    public FeetUnit(double value, UnitPrefix prefix) : base(value, prefix)
+    { }
+
+    public FeetUnit(UnitPrefix prefix) : base(prefix)
     { }
 
     public override string PrintString()
     {
-        return Value.ToString(specifier) + " feet";
+        return base.PrintString() + " feet";
+    }
+
+    public void Convert(ref MeterUnit t)
+    {
+        t.SetValueWithPrefix(this.Value * 0.3048);
+    }
+
+    public void Convert(ref InchUnit t)
+    {
+        t.SetValueWithPrefix(this.GetValueWithoutPrefix() * 12);
+    }
+
+    public void Convert(ref FeetUnit t)
+    {
+        t.SetValueWithPrefix(this.GetValueWithoutPrefix());
     }
 }

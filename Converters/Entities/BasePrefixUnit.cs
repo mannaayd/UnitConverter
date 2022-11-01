@@ -4,74 +4,74 @@ namespace Converters;
 
 public abstract class BasePrefixUnit : BaseUnit
 {
-    protected BasePrefixUnit(decimal value, SIUnitPrefix prefix) : base(value)
+    protected BasePrefixUnit(double value, UnitPrefix prefix) : base(value)
     {
         this.Prefix = prefix;
     }
 
-    protected BasePrefixUnit(SIUnitPrefix prefix) : base(0m)
+    protected BasePrefixUnit(UnitPrefix prefix) : base(0)
     {
         this.Prefix = prefix;
     }
 
-    private SIUnitPrefix Prefix { get; set; }
-
-    public decimal GetValueWithoutPrefix()
+    protected BasePrefixUnit(double value) : base(value)
     {
-        return Decimal.Multiply(Value, GetPrefixPower());
+        Prefix = UnitPrefix.EMPTY;
+    }
+
+    private UnitPrefix Prefix { get; set; }
+
+    protected double GetValueWithoutPrefix()
+    {
+        return Value * GetPrefixPower();
     }
     
-    public void SetValueWithPrefix(decimal valueWithoutPrefix)
+    public void SetValueWithPrefix(double valueWithoutPrefix)
     {
-        this.Value = Decimal.Divide(valueWithoutPrefix, GetPrefixPower());
+        this.Value = valueWithoutPrefix / GetPrefixPower();
     }
 
-    private decimal GetPrefixPower()
+    private double GetPrefixPower()
     {
-        decimal res = 1m;
-        for (int i = 0; i < (int)Prefix; i++)
-        {
-            res = Decimal.Multiply(res, 10m);
-        }
-        return res;
+        return Math.Pow(10, (int)Prefix);
     }
 
     public override string PrintString()
     {
-        StringBuilder sb = new StringBuilder(" ");
+        var sb = new StringBuilder(Value.ToString(PrintSpecifier));
         switch (Prefix)
         {
-            case SIUnitPrefix.EMPTY:
+            case UnitPrefix.EMPTY:
                 break;
-            case SIUnitPrefix.DECA:
-                sb.Append("deca");
+            case UnitPrefix.DECA:
+                sb.Append(" deca");
                 break;
-            case SIUnitPrefix.HECTO:
-                sb.Append("hecto");
+            case UnitPrefix.HECTO:
+                sb.Append(" hecto");
                 break;
-            case SIUnitPrefix.KILO:
-                sb.Append("kilo");
+            case UnitPrefix.KILO:
+                sb.Append(" kilo");
                 break;
-            case SIUnitPrefix.MEGA:
-                sb.Append("mega");
+            case UnitPrefix.MEGA:
+                sb.Append(" mega");
                 break;
-            case SIUnitPrefix.GIGA:
-                sb.Append("giga");
+            case UnitPrefix.GIGA:
+                sb.Append(" giga");
                 break;
-            case SIUnitPrefix.TERA:
-                sb.Append("tera");
+            case UnitPrefix.TERA:
+                sb.Append(" tera");
                 break;
-            case SIUnitPrefix.PETA:
-                sb.Append("peta");
+            case UnitPrefix.PETA:
+                sb.Append(" peta");
                 break;
-            case SIUnitPrefix.EXA:
-                sb.Append("exa");
+            case UnitPrefix.EXA:
+                sb.Append(" exa");
                 break;
-            case SIUnitPrefix.ZETTA:
-                sb.Append("zetta");
+            case UnitPrefix.ZETTA:
+                sb.Append(" zetta");
                 break;
-            case SIUnitPrefix.YOTTA:
-                sb.Append("yotta");
+            case UnitPrefix.YOTTA:
+                sb.Append(" yotta");
                 break;
             default:
                 break;

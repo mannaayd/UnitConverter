@@ -1,15 +1,25 @@
 ﻿namespace Converters;
 
-public class ByteUnit : BasePrefixUnit
+public class ByteUnit : BasePrefixUnit, IConvertibleTo<BitUnit>, IConvertibleTo<ByteUnit>
 {
-    public ByteUnit(decimal value, SIUnitPrefix prefix) : base(value, prefix)
+    public ByteUnit(double value, UnitPrefix prefix) : base(value, prefix)
     { }
     
-    public ByteUnit(SIUnitPrefix prefix) : base(prefix)
+    public ByteUnit(UnitPrefix prefix) : base(prefix)
     { }
 
     public override string PrintString()
     {
-        return Value.ToString(specifier) + base.PrintString() + "byte";
+        return base.PrintString() + "byte";
+    }
+
+    public void Convert(ref BitUnit t)
+    {
+        t.SetValueWithPrefix(this.GetValueWithoutPrefix() * 8);
+    }
+
+    public void Convert(ref ByteUnit t)
+    {
+        t.SetValueWithPrefix(this.GetValueWithoutPrefix());
     }
 }

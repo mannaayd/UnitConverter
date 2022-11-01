@@ -2,10 +2,10 @@
 
 public abstract class BaseUnit
 {
-    public decimal Value { get; set; }
+    public double Value { get; set; }
     
-    protected const string specifier = "0.000";
-    protected BaseUnit(decimal value)
+    protected const string PrintSpecifier = "0.000";
+    protected BaseUnit(double value)
     {
         this.Value = value;
     }

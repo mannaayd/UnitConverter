@@ -1,12 +1,20 @@
 ﻿namespace Converters;
 
-public class FahrenheitUnit : BaseUnit
+public class FahrenheitUnit : BaseUnit, IConvertibleTo<CelsiusUnit>
 {
-    public FahrenheitUnit(decimal value) : base(value)
+    public FahrenheitUnit(double value) : base(value)
     { }
-
+    
+    public FahrenheitUnit() : base(0)
+    { }
+    
     public override string PrintString()
     {
-        return Value.ToString(specifier) + " fahrenheit";
+        return Value.ToString(PrintSpecifier) + " fahrenheit";
+    }
+
+    public void Convert(ref CelsiusUnit t)
+    {
+        t.Value = (this.Value - 32) * 0.55555556;
     }
 }
