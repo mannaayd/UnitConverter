@@ -3,12 +3,6 @@ using System.Text.RegularExpressions;
 
 namespace Converters;
 
-
-/*
- *  Example input  (from X units, to target unit)-> output:
- *  ("1 meter", "feet") -> "3.28 feet"
- *  ("3 kiloinch", "meter") -> "76.19 meter"
- */
 public static class UnitConverter
 {
     /**
