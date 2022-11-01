@@ -1,6 +1,6 @@
 ﻿namespace Converters;
 
-public abstract class BaseUnit
+internal abstract class BaseUnit
 {
     public double Value { get; set; }
     

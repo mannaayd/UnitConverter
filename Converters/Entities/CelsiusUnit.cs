@@ -1,6 +1,6 @@
 ﻿namespace Converters;
 
-public class CelsiusUnit : BaseUnit, IConvertibleTo<FahrenheitUnit>
+internal class CelsiusUnit : BaseUnit, IConvertibleTo<FahrenheitUnit>
 {
     public CelsiusUnit(double value) : base(value)
     { }

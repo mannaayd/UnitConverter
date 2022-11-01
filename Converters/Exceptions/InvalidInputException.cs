@@ -1,6 +1,6 @@
 ﻿namespace Converters;
 
-public class InvalidInputException : Exception
+internal class InvalidInputException : Exception
 {
     
 }

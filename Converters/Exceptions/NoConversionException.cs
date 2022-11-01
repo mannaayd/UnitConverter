@@ -1,6 +1,6 @@
 ﻿namespace Converters;
 
-public class NoConversionException : Exception
+internal class NoConversionException : Exception
 {
     
 }

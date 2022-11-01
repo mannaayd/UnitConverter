@@ -2,7 +2,7 @@
 
 namespace Converters.Tests;
 
-public class ConversionTests
+internal class ConversionTests
 {
     [Test]
     public void CelsiusToFahrenheit()

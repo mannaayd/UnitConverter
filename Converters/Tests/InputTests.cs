@@ -4,7 +4,7 @@ using Converters;
 
 namespace Converters.Tests;
 
-public class InputTests
+internal class InputTests
 {
 
     [Test]

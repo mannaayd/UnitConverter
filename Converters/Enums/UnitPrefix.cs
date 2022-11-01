@@ -5,7 +5,7 @@
 /*
  * Note: I can add here another prefixes such as cm, mm etc. But I should set their power of 10 into their num. And add them into base class printer and add to parser.
  */
-public enum UnitPrefix
+internal enum UnitPrefix
 {
     //CENTI = -1,
     EMPTY = 0,

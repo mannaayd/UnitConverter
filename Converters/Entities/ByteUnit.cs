@@ -1,6 +1,6 @@
 ﻿namespace Converters;
 
-public class ByteUnit : BasePrefixUnit, IConvertibleTo<BitUnit>, IConvertibleTo<ByteUnit>
+internal class ByteUnit : BasePrefixUnit, IConvertibleTo<BitUnit>, IConvertibleTo<ByteUnit>
 {
     public ByteUnit(double value, UnitPrefix prefix) : base(value, prefix)
     { }

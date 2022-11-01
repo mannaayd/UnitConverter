@@ -2,7 +2,7 @@
 
 namespace Converters.Tests;
 
-public class OutputTests
+internal sealed class OutputTests
 {
     [Test]
     public void TestConsoleOutput()

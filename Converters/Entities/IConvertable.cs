@@ -1,6 +1,6 @@
 ﻿namespace Converters;
 
-public interface IConvertibleTo<T>
+internal interface IConvertibleTo<T>
 {
     /**
      * @brief Method that converts this.Value to t.Value of class T

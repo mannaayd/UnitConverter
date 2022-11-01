@@ -1,6 +1,6 @@
 ﻿namespace Converters;
 
-public class MeterUnit : BasePrefixUnit, IConvertibleTo<InchUnit>, IConvertibleTo<FeetUnit>, IConvertibleTo<MeterUnit>
+internal class MeterUnit : BasePrefixUnit, IConvertibleTo<InchUnit>, IConvertibleTo<FeetUnit>, IConvertibleTo<MeterUnit>
 {
     public MeterUnit(double value, UnitPrefix prefix) : base(value, prefix)
     { }

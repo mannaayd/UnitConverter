@@ -2,7 +2,7 @@
 
 namespace Converters;
 
-public abstract class BasePrefixUnit : BaseUnit
+internal abstract class BasePrefixUnit : BaseUnit
 {
     protected BasePrefixUnit(double value, UnitPrefix prefix) : base(value)
     {
