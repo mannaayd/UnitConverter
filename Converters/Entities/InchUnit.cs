@@ -10,7 +10,7 @@ internal class InchUnit : BasePrefixUnit, IConvertibleTo<MeterUnit>, IConvertibl
 
     public override string PrintString()
     {
-        return base.PrintString() + " inch";
+        return base.PrintString() + "inch";
     }
 
     public void Convert(ref MeterUnit t)

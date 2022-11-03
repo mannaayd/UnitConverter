@@ -10,7 +10,7 @@ internal class FeetUnit : BasePrefixUnit, IConvertibleTo<MeterUnit>, IConvertibl
 
     public override string PrintString()
     {
-        return base.PrintString() + " feet";
+        return base.PrintString() + "feet";
     }
 
     public void Convert(ref MeterUnit t)

@@ -42,6 +42,7 @@ internal abstract class BasePrefixUnit : BaseUnit
         switch (Prefix)
         {
             case UnitPrefix.EMPTY:
+                sb.Append(" ");
                 break;
             case UnitPrefix.DECA:
                 sb.Append(" deca");
